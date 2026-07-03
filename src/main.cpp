@@ -18,7 +18,7 @@ int main(void)
 {
     array<Hospede, 10> hospedes;
     size_t totalHospedes = 0;
-    int opcao;
+    int16_t opcao;
 
     do
     {
