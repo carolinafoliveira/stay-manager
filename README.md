@@ -1,22 +1,28 @@
 # 🏨 StayManager
 
-StayManager é um sistema de gerenciamento de hotel desenvolvido em C++23 com o objetivo de praticar lógica de programação, estruturas de dados, programação modular e orientação a objetos.
+StayManager é um sistema de gerenciamento de hotel desenvolvido em C++23.
 
-## Objetivos
+## Objetivo
 
-- Aprender C++23 na prática.
-- Desenvolver um sistema completo de gerenciamento de hotel.
-- Evoluir o projeto em versões.
-- Publicar toda a evolução no GitHub.
+Desenvolver um sistema completo para gerenciamento de hotéis, aplicando conceitos de programação estruturada e, posteriormente, orientação a objetos.
+
+## Funcionalidades
+
+- [ ] Cadastro de hóspedes
+- [ ] Listagem de hóspedes
+- [ ] Cadastro de quartos
+- [ ] Listagem de quartos
+- [ ] Reservas
+- [ ] Check-in
+- [ ] Check-out
+- [ ] Relatórios
+- [ ] Persistência em arquivos
+- [ ] Interface gráfica (Qt)
 
 ## Tecnologias
 
 - C++23
-- Biblioteca Padrão (STL)
+- STL
 - std::array
 - Structs
 - Funções
-
-## Status
-
-🚧 Em desenvolvimento
