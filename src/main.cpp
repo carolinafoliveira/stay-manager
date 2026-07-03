@@ -1,4 +1,4 @@
-// STAYMANAGER - VERSAO 0.2.0
+// STAYMANAGER - VERSAO 0.3.0
 // Sistema de gerenciamento de hotel em C++23
 
 #include <iostream>
@@ -41,6 +41,7 @@ int main(void)
         cout << "2 - Listar hospedes" << endl;
         cout << "3 - Cadastrar quarto" << endl;
         cout << "4 - Listar quartos" << endl;
+        cout << "5 - Pesquisar hospede" << endl;
         cout << "0 - Sair" << endl;
         cout << "\nEscolha uma opcao: ";
         cin >> opcao;
@@ -139,6 +140,34 @@ int main(void)
                     else
                         cout << "Status..: Livre" << endl;
                 }
+            }
+        }
+        else if (opcao == 5)
+        {
+            string cpfPesquisa;
+            bool achou = false;
+
+            cout << "\n=== PESQUISA DE HOSPEDE ===" << endl;
+
+            cout << "Digite o CPF do hospede que deseja pesquisar: ";
+            getline(cin, cpfPesquisa);
+
+            for (size_t i = 0; i < totalHospedes; ++i)
+            {
+                if (hospedes[i].cpf == cpfPesquisa)
+                {
+                    cout << "\nHospede encontrado!" << endl;
+                    cout << "Nome.....: " << hospedes[i].nome << endl;
+                    cout << "CPF......: " << hospedes[i].cpf << endl;
+                    cout << "Telefone.: " << hospedes[i].telefone << endl;
+
+                    achou = true;
+                }
+            }
+
+            if (achou == false)
+            {
+                cout << "\nHospede nao encontrado!" << endl;
             }
         }
         else if (opcao != 0)
