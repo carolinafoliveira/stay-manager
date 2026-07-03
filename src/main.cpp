@@ -1,4 +1,4 @@
-// STAYMANAGER - VERSAO 0.1.0
+// STAYMANAGER - VERSAO 0.2.0
 // Sistema de gerenciamento de hotel em C++23
 
 #include <iostream>
@@ -14,10 +14,22 @@ struct Hospede
     string telefone;
 };
 
+struct Quarto
+{
+    int16_t numero;
+    string tipo;
+    double diaria;
+    bool ocupado;
+};
+
 int main(void)
 {
     array<Hospede, 10> hospedes;
+    array<Quarto, 10> quartos;
+
     size_t totalHospedes = 0;
+    size_t totalQuartos = 0;
+
     int16_t opcao;
 
     do
@@ -27,6 +39,8 @@ int main(void)
         cout << "==============================" << endl;
         cout << "1 - Cadastrar hospede" << endl;
         cout << "2 - Listar hospedes" << endl;
+        cout << "3 - Cadastrar quarto" << endl;
+        cout << "4 - Listar quartos" << endl;
         cout << "0 - Sair" << endl;
         cout << "\nEscolha uma opcao: ";
         cin >> opcao;
@@ -75,14 +89,66 @@ int main(void)
                 }
             }
         }
+        else if (opcao == 3)
+        {
+            if (totalQuartos < quartos.size())
+            {
+                cout << "\n=== CADASTRO DE QUARTO ===" << endl;
+
+                cout << "Numero do quarto: ";
+                cin >> quartos[totalQuartos].numero;
+                cin.ignore(80, '\n');
+
+                cout << "Tipo do quarto: ";
+                getline(cin, quartos[totalQuartos].tipo);
+
+                cout << "Valor da diaria: ";
+                cin >> quartos[totalQuartos].diaria;
+                cin.ignore(80, '\n');
+
+                quartos[totalQuartos].ocupado = false;
+
+                totalQuartos++;
+
+                cout << "\nQuarto cadastrado com sucesso!" << endl;
+            }
+            else
+            {
+                cout << "\nLimite de quartos atingido!" << endl;
+            }
+        }
+        else if (opcao == 4)
+        {
+            cout << "\n=== LISTA DE QUARTOS ===" << endl;
+
+            if (totalQuartos == 0)
+            {
+                cout << "Nenhum quarto cadastrado." << endl;
+            }
+            else
+            {
+                for (size_t i = 0; i < totalQuartos; ++i)
+                {
+                    cout << "\nQuarto " << i + 1 << endl;
+                    cout << "Numero..: " << quartos[i].numero << endl;
+                    cout << "Tipo....: " << quartos[i].tipo << endl;
+                    cout << "Diaria..: R$ " << quartos[i].diaria << endl;
+
+                    if (quartos[i].ocupado)
+                        cout << "Status..: Ocupado" << endl;
+                    else
+                        cout << "Status..: Livre" << endl;
+                }
+            }
+        }
         else if (opcao != 0)
         {
             cout << "\nOpcao invalida!" << endl;
         }
 
     } while (opcao != 0);
-    
+
     cout << "\nEncerrando o StayManager..." << endl;
-    cin.get();
+
     return 0;
 }
