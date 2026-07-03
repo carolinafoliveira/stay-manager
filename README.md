@@ -26,3 +26,7 @@ Desenvolver um sistema completo para gerenciamento de hotéis, aplicando conceit
 - std::array
 - Structs
 - Funções
+
+## 📌 Status
+
+🚧 Projeto em desenvolvimento.
